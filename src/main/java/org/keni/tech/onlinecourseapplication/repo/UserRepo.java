@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface UserRepo extends JpaRepository<User, Integer> {
-    @Query("select u from User u where u.email-=?1 and u.password=?2")
+    @Query("select u from User u where u.email=?1 and u.password=?2")
     Optional<User> findUserByEmailAndPassword(String email, String password);
     @Modifying
     @Query("delete from User u where u.email=?1")
